@@ -1,21 +1,15 @@
-import express from 'express'
-//import giftData from '../data/gifts.js'
-import GiftsController from '../controllers/gifts.js'
 
+
+import express from 'express'
+import GiftsController from '../controllers/gifts.js'
 
 const router = express.Router()
 
-
-//router.get('/', (req, res) => {
-//    res.status(200).json(giftData)
-//  })
-  
-/*router.get('/', GiftsController.getGifts)
-
-router.get('/:giftId', (req, res) => {
-  res.status(200).sendFile(path.resolve(__dirname, '../public/gift.html'))
-}) */
-
+router.get('/', GiftsController.getGifts)
 router.get('/:giftId', GiftsController.getGiftById)
+router.post('/', GiftsController.createGift)
+router.delete('/:id', GiftsController.deleteGift)
+router.patch('/:id', GiftsController.updateGift)
 
-export default router  
+export default router
+

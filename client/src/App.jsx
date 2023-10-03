@@ -7,6 +7,11 @@ import PageNotFound from './pages/PageNotFound'
 import { Link } from 'react-router-dom'
 
 
+import CreateGift from './pages/CreateGift'
+import EditGift from './pages/EditGift'
+
+
+
 const App = () => {
   
   const [gifts, setGifts] = useState([]);
@@ -49,6 +54,9 @@ const App = () => {
           </div>
           <div className="header-right">
             <Link to="/"><button className="homeBtn">Home</button></Link>
+            <Route path="/gift/:id" element={<GiftDetails data={gifts} />} />
+            <Route path="/new" element={<CreateGift />} />
+            <Route path="/*" element={<PageNotFound />} />
           </div>
         </div>
       </header>
@@ -69,6 +77,12 @@ const fetchGifts = async () => {
 
 
 }
+
+
+
+
+
+
 
 
 export default App;

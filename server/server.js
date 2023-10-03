@@ -2,7 +2,7 @@ import express from 'express'
 import './config/dotenv.js'
 import giftsRouter from './routes/gifts.js'
 import cors from 'cors'
-
+app.use(express.json())
 const app = express()
 app.use('/public', express.static('./public'))
 
